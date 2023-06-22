@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jun 2023 pada 08.18
+-- Waktu pembuatan: 22 Jun 2023 pada 18.29
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -95,7 +95,9 @@ INSERT INTO `pekerjaan` (`id`, `uraian_tugas`, `output_kerja`, `tanggal`, `user_
 (3, 'Membuat Laporan Surat Masuk dan Surat Keluar', '2 laporan', '2023-06-19', 4, 'Burhan Unru', '2023-06-17'),
 (4, 'Penginputan Pernomoran Surat', '354 Dok', '2023-06-19', 5, 'Siti Ainun', '2023-06-18'),
 (5, 'Penginputan Surat Masuk dan Keluar', '345 Dok', '2023-06-19', 5, 'Siti Ainun', '2023-06-18'),
-(6, 'Membantu Mengelola Sisumaker', '2 Keg', '2023-06-18', 5, 'Siti Ainun', '2023-06-18');
+(6, 'Membantu Mengelola Sisumaker', '2 Keg', '2023-06-18', 5, 'Siti Ainun', '2023-06-18'),
+(8, 'Menginput data excel', '10 dok', '2023-06-21', 5, 'Siti Ainun', '2023-06-21'),
+(11, 'Pengelolaan Media Informasi', '100 dok', '2023-06-22', 4, 'Burhan Unru', '2023-06-22');
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,7 @@ CREATE TABLE `penilaian` (
   `id` int(11) NOT NULL,
   `nik` char(16) NOT NULL,
   `pekerjaan_id` int(11) DEFAULT NULL,
-  `nilai1` double NOT NULL DEFAULT 0,
+  `nilai1` varchar(1) DEFAULT NULL,
   `ketentuan_nilai1` varchar(50) DEFAULT NULL,
   `sikap_kerja` char(10) DEFAULT NULL,
   `nilai2` double NOT NULL DEFAULT 0,
@@ -124,11 +126,13 @@ CREATE TABLE `penilaian` (
 --
 
 INSERT INTO `penilaian` (`id`, `nik`, `pekerjaan_id`, `nilai1`, `ketentuan_nilai1`, `sikap_kerja`, `nilai2`, `ketentuan_nilai2`, `bulan`, `tahun`, `komentar`, `update_pada`, `update_oleh`) VALUES
-(1, 'BPD230601003', 1, 88, 'Dilaksanakan', 'Penyelesai', 78, 'Cukup Baik', '06', '2023', 'Catatan Atasan', '2023-06-18', 'Yusuf Aryadilla'),
-(2, 'BPD230601003', 3, 69, 'Nilai B : Sedang Dilaksanakan', 'Penyelesai', 67, 'Cukup Baik', '06', '2023', '', '2023-06-18', 'Yusuf Aryadilla'),
-(6, 'BPD230617004', 4, 88, 'Nilai A : Terelah Dilaksanakan', 'Penyelesai', 67, 'Cukup Baik', '06', '2023', ' ', '2023-06-18', 'Yusuf Aryadilla'),
-(7, 'BPD230617004', 5, 88, 'Dilaksanakan', 'Penyelesai', 78, 'Cukup Baik', '06', '2023', ' ', '2023-06-18', 'Yusuf Aryadilla'),
-(8, 'BPD230617004', 6, 69, 'Nilai B : Sedang Dilaksanakan', 'Penyelesai', 67, 'Cukup Baik', '06', '2023', ' ', '2023-06-18', 'Yusuf Aryadilla');
+(9, 'BPD230617004', 4, 'A', ' Terelah Dilaksanakan', 'Penyelesai', 5, 'Sangat Baik', '06', '2023', '    ', '2023-06-22', 'Admin'),
+(10, 'BPD230617004', 5, 'A', 'Sedang Dilaksanakan', 'Sedang dik', 5, 'Sangat Baik', '06', '2023', '    ', '2023-06-22', 'Admin'),
+(11, 'BPD230617004', 6, 'A', 'Sedang Dilaksanakan', 'belum sele', 4, 'Baik', '06', '2023', '    ', '2023-06-22', 'Admin'),
+(12, 'BPD230617004', 8, 'A', 'Sedang Dilaksanakan', 'belum sele', 5, 'Sangat Baik', '06', '2023', '    ', '2023-06-22', 'Admin'),
+(13, 'BPD230601003', 1, 'A', ' Terelah Dilaksanakan', 'Integritas', 5, 'Sangat Baik', '06', '2023', '   Perbaiki kecepatan mengerjakan tugas', '2023-06-22', 'Linda Amanda'),
+(14, 'BPD230601003', 3, 'A', 'Dilaksanakan', 'Penyelesai', 4, 'Baik', '06', '2023', '   Perbaiki kecepatan mengerjakan tugas', '2023-06-22', 'Linda Amanda'),
+(17, 'BPD230601003', 11, 'A', ' Terelah Dilaksanakan', 'Penyelesai', 5, 'Sangat Baik', '06', '2023', '   Perbaiki kecepatan mengerjakan tugas', '2023-06-22', 'Linda Amanda');
 
 -- --------------------------------------------------------
 
@@ -218,13 +222,13 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT untuk tabel `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
