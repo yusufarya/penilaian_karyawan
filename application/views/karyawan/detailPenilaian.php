@@ -56,6 +56,7 @@ $level_ = $data['me']['jabatan_id'];
                 ?>
             </tbody>
         </table>
+        <b style="padding: 0;">Catatan : </b>
         <textarea name="komentar" readonly class="form-control" placeholder="Catatan..." id="komentar" cols="10" rows="4" style="width: 50%;"><?= $data['listPenilaian'] ? $data['listPenilaian'][0]['komentar'] : '' ?> </textarea>
         <hr>
         <div>

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -54,47 +54,47 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Login Admin //
-$route['logoutAdmin'] = 'Login/logout'; 
-$route['register'] = 'Login/register'; 
+$route['logoutAdmin'] = 'Login/logout';
+$route['register'] = 'Login/register';
 
-$route['dashboard'] = 'Dashboard'; 
+$route['dashboard'] = 'Dashboard';
 
 // Master Data DIVISI //
-$route['divisiList'] = 'Employee/divisiList'; 
-$route['addDivisi'] = 'Employee/addDivisi'; 
-$route['addDivisi_'] = 'Employee/addDivisi_'; 
-$route['editDivisi/(:any)'] = 'Employee/editDivisi/$1'; 
-$route['updateDivisi'] = 'Employee/updateDivisi'; 
+$route['divisiList'] = 'Employee/divisiList';
+$route['addDivisi'] = 'Employee/addDivisi';
+$route['addDivisi_'] = 'Employee/addDivisi_';
+$route['editDivisi/(:any)'] = 'Employee/editDivisi/$1';
+$route['updateDivisi'] = 'Employee/updateDivisi';
 // Master Data POSITION (jabatan) //
-$route['positionList'] = 'Employee/positionList'; 
-$route['addPosition'] = 'Employee/addPosition'; 
-$route['addPosition_'] = 'Employee/addPosition_'; 
-$route['editPosition/(:any)'] = 'Employee/editPosition/$1'; 
-$route['updatePosition'] = 'Employee/updatePosition'; 
+$route['positionList'] = 'Employee/positionList';
+$route['addPosition'] = 'Employee/addPosition';
+$route['addPosition_'] = 'Employee/addPosition_';
+$route['editPosition/(:any)'] = 'Employee/editPosition/$1';
+$route['updatePosition'] = 'Employee/updatePosition';
 // Master Data EMPLOYEE (Karyawan) //
-$route['empployeeList'] = 'Employee/empployeeList'; 
-$route['addEmployee'] = 'Employee/addEmployee'; 
-$route['addEmployee_'] = 'Employee/addEmployee_'; 
-$route['editEmployee/(:any)'] = 'Employee/editEmployee/$1'; 
-$route['updateEmployee'] = 'Employee/updateEmployee'; 
+$route['empployeeList'] = 'Employee/empployeeList';
+$route['addEmployee'] = 'Employee/addEmployee';
+$route['addEmployee_'] = 'Employee/addEmployee_';
+$route['editEmployee/(:any)'] = 'Employee/editEmployee/$1';
+$route['updateEmployee'] = 'Employee/updateEmployee';
 
 // Penilaian //
-$route['detailPekerjaan'] = 'Penilaian/detailPekerjaan'; 
-$route['addaspek'] = 'Penilaian/addaspek'; 
-$route['addaspek_'] = 'Penilaian/addaspek_'; 
-$route['editaspek/(:any)'] = 'Penilaian/editaspek/$1'; 
-$route['updateaspek'] = 'Penilaian/updateaspek'; 
+$route['detailPekerjaan'] = 'Penilaian/detailPekerjaan';
+$route['addaspek'] = 'Penilaian/addaspek';
+$route['addaspek_'] = 'Penilaian/addaspek_';
+$route['editaspek/(:any)'] = 'Penilaian/editaspek/$1';
+$route['updateaspek'] = 'Penilaian/updateaspek';
 
-$route['penilaian'] = 'Penilaian/penilaian'; 
-$route['updateNilaiKaryawan'] = 'Penilaian/updateNilaiKaryawan'; 
+$route['penilaian'] = 'Penilaian/penilaian';
+$route['updateNilaiKaryawan'] = 'Penilaian/updateNilaiKaryawan';
 
-$route['pekerjaan_report'] = 'Laporan/pekerjaan_report'; 
-$route['penilaian_report'] = 'Laporan/penilaian_report'; 
+$route['pekerjaan_report'] = 'Laporan/pekerjaan_report';
+$route['penilaian_report'] = 'Laporan/penilaian_report';
 
 // KARYAWAN //
-$route['karyawan'] = 'Karyawan/index'; 
-$route['daftar_kerja'] = 'Karyawan/daftar_kerja'; 
-$route['penilaian_saya'] = 'Karyawan/penilaian_saya'; 
-$route['detail_nilai/(:any)'] = 'Karyawan/detail_nilai_saya/$1'; 
+$route['karyawan'] = 'Karyawan/index';
+$route['daftar_kerja'] = 'Karyawan/daftar_kerja';
+$route['penilaian_saya'] = 'Karyawan/penilaian_saya';
+$route['detail_nilai/(:any)'] = 'Karyawan/detail_nilai_saya/$1';
 
-$route['logoutMe'] = 'Login/logoutMe'; 
+$route['logoutMe'] = 'Login/logoutMe';

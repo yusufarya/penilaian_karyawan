@@ -82,6 +82,7 @@ if ($cekDataExist > 0) {
                     ?>
                 </tbody>
             </table>
+            <b>Catatan :</b>
             <textarea name="komentar" class="form-control" placeholder="Catatan..." id="komentar" cols="10" rows="4" style="width: 50%;"><?= $action == '1' ? $data['listPenilaian'][0]['komentar'] : '' ?> </textarea>
             <hr>
             <div>
