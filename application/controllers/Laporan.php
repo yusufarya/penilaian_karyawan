@@ -52,10 +52,10 @@ class Laporan extends BaseController
             $criteria = 'AND u.id = "' . $karyawan . '" ';
         }
         if ($jabatan) {
-            $criteria = 'AND jab.id = "' . $jabatan . '" ';
+            $criteria = 'AND j.id = "' . $jabatan . '" ';
         }
         if ($divisi) {
-            $criteria = 'AND div.id = "' . $divisi . '" ';
+            $criteria = 'AND d.id = "' . $divisi . '" ';
         }
 
         $DSQL = 'SELECT DISTINCT k.*, u.nik, u.nama AS namakaryawan, d.nama AS divisi, j.nama AS jabatan

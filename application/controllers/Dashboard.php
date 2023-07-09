@@ -15,8 +15,7 @@ class Dashboard extends BaseController
         $data['title'] = 'Dashboard Admin';
         $data['active'] = 'Dashboard';
 
-        $this->global['page_title'] = 'Dashboard - PRIMAFOOD';
+        $this->global['page_title'] = 'Dashboard - BAPENDA';
         $this->loadViewsAdmin('admin/dashboard', $this->global, $data, NULL, TRUE);
     }
-
 }

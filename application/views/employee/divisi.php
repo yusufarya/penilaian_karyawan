@@ -1,7 +1,9 @@
 <?php
 $data = json_decode(json_encode($pageInfo), True);
-$level_ = $data['me']['jabatan_id']; 
-$order = isset($data['order']) ? $data['order'] : ''; 
+$level_ = $data['me']['jabatan_id'];
+$divisi_ = $data['me']['divisi_id'];
+
+$order = isset($data['order']) ? $data['order'] : '';
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid" style="height: 100vh;">
@@ -10,60 +12,66 @@ $order = isset($data['order']) ? $data['order'] : '';
   <form action="<?php echo base_url('divisiList') ?>" method="post">
     <div class="row">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h3 class="h4 mb-2 text-dark"><?= $data['title'] ?></h3>
+        <h3 class="h4 mb-2 text-dark"><?= $data['title'] ?></h3>
       </div>
       <div class="col-md-8">
-          <div class="input-group">
-            <input type="text" name="searchText" class="form-control" placeholder="Cari..." autocomplete="off" value="<?= $data['searchText']?>">
-            <button class="btn btn-outline-primary" type="submit" id="submit">Cari</button>
-            <button class="btn btn-outline-secondary" onclick="resetSearch()"><i class="fa fa-eraser"></i></button> 
-          </div> 
+        <div class="input-group">
+          <input type="text" name="searchText" class="form-control" placeholder="Cari..." autocomplete="off" value="<?= $data['searchText'] ?>">
+          <button class="btn btn-outline-primary" type="submit" id="submit">Cari</button>
+          <button class="btn btn-outline-secondary" onclick="resetSearch()"><i class="fa fa-eraser"></i></button>
         </div>
-        <div class="col-md-2">
-        <div class="row"> 
+      </div>
+      <div class="col-md-2">
+        <div class="row">
           <div class="col-md-10">
             <select class="form-select" name="orderby" id="orderList">
               <option value="">Urutkan</option>
               <option value="inisial" <?= $order == 'inisial' ? 'selected' : '' ?>>Inisial</option>
               <option value="nama" <?= $order == 'nama' ? 'selected' : '' ?>>Nama</option>
-            </select> 
+            </select>
           </div>
-        </div>          
+        </div>
       </div>
       <div class="col-md-2">
-      <a style="float: right;" href="<?= base_url('addDivisi') ?>" class="btn btn-sm btn-outline-primary" type="button" id="addData"><i class="bi bi-plus"></i> Divisi</a>
+        <?php if ($divisi_ <= 1) { ?>
+          <a style="float: right;" href="<?= base_url('addDivisi') ?>" class="btn btn-sm btn-outline-primary" type="button" id="addData"><i class="bi bi-plus"></i> Divisi</a>
+        <?php } ?>
       </div>
     </div>
-  </form> 
-        
+  </form>
+
   <!-- Content Row -->
   <div class="row mt-2 mx-0">
-    
+
     <table class="table table-sm table-hover table-bordered">
-        <thead>
-            <tr style="text-transform: uppercase; font-size: 13px; background: #ececec;">
-                <th style="width:15%;">Inisial</th>
-                <th>Nama</th>
-                <th style="width:70px; text-align:center;">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($data['dataDivisi'] as $key => $val) { ?>
-                <tr style="font-size: 13px;">
-                    <td><?= $val['inisial'] ?></td> 
-                    <td><?= $val['nama'] ?></td> 
-                    <td style="text-align: center;"> 
-                        <a href="<?= base_url('editDivisi/').$val['inisial'] ?>" class="text-warning bg-white"><i class="bi bi-pencil"></i></a> &nbsp;
-                        <a href="#" onclick="deleteTr('<?= $val['id'] ?>','<?= $val['nama'] ?>', <?= $level_ ?>)" class="text-danger bg-white"><i class="bi bi-trash"></i></a> 
-                    </td>
-                </tr>
+      <thead>
+        <tr style="text-transform: uppercase; font-size: 13px; background: #ececec;">
+          <th style="width:15%;">Inisial</th>
+          <th>Nama</th>
+          <?php if ($divisi_ <= 1) { ?>
+            <th style="width:70px; text-align:center;">Aksi</th>
+          <?php } ?>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($data['dataDivisi'] as $key => $val) { ?>
+          <tr style="font-size: 13px;">
+            <td><?= $val['inisial'] ?></td>
+            <td><?= $val['nama'] ?></td>
+            <?php if ($divisi_ <= 1) { ?>
+              <td style="text-align: center;">
+                <a href="<?= base_url('editDivisi/') . $val['inisial'] ?>" class="text-warning bg-white"><i class="bi bi-pencil"></i></a> &nbsp;
+                <a href="#" onclick="deleteTr('<?= $val['id'] ?>','<?= $val['nama'] ?>', <?= $divisi_ ?>)" class="text-danger bg-white"><i class="bi bi-trash"></i></a>
+              </td>
             <?php } ?>
-        </tbody>
-    </table> 
-  </div>  
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
 
 </div>
-<!-- /.container-fluid --> 
+<!-- /.container-fluid -->
 
 <div class="modal fade deleteTr" tabindex="-1">
   <div class="modal-dialog">
@@ -74,7 +82,7 @@ $order = isset($data['order']) ? $data['order'] : '';
       </div>
       <div class="modal-body">
         <input type="hidden" class="form-control-plaintext" id="del_kode">
-         <p id="hapus"></p>
+        <p id="hapus"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
